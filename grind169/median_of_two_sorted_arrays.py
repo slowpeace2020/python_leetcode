@@ -96,7 +96,28 @@ class Solution:
             else:
                 low = mid1 + 1
         return 0
+
     def findMedianSortedArraysIV(self, nums1: List[int], nums2: List[int]) -> float:
+        m, n = len(nums1), len(nums2)
+        left = (m + n + 1) // 2
+        right = (m + n + 2) // 2
+        return (self.findKth(nums1, 0, nums2, left) + self.findKth(nums1, 0, nums2, right)) / 2.0
+
+    def findKth(self, nums1, i, nums2, j, k):
+        if i >= len(nums1):
+            return nums2[j + k - 1]
+        if j >= len(nums2):
+            return nums1[i + k - 1]
+        if k == 1:
+            return min(nums1[i], nums2[j])
+
+        midVal1 = nums1[i + k // 2 - 1] if i + k // 2 - 1 < len(nums1) else float('inf')
+        midVal2 = nums2[i + k // 2 - 1] if i + k // 2 - 1 < len(nums2) else float('inf')
+
+        if midVal1 < midVal2:
+            return self.findKth(nums1, i + k // 2, nums2, j, k - k // 2)
+        else:
+            return self.findKth(nums1, i, nums2, j + k // 2, k - k // 2)
 
 
 if __name__ == "__main__":
