@@ -2,4 +2,6 @@
 [2. Add Two Numbers](grind169/add_two_numbers.py)\
 [3. Longest Substring Without Repeating Characters](grind169/longest_substring_without_repeating_characters.py)\
 [4. Median of Two Sorted Arrays](grind169/median_of_two_sorted_arrays.py)\
-[5. Longest Palindromic Substring]()
+[5. Longest Palindromic Substring](grind169/longest_palindromic_substring.py)\
+[6. Zigzag Conversion](grind169/zigzag_conversion.py)
+[7. Reverse Integer](grind169/reverse_integer.py)

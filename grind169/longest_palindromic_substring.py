@@ -38,10 +38,10 @@ class Solution:
 
     # dynamic programming
     def longestPalindromeII(self, s: str) -> str:
-        if len(s)<=1:
+        if len(s) <= 1:
             return s
 
-        max_len =1
+        max_len = 1
         max_str = s[0]
 
         # 初始化一个二维布尔类型的列表（list）
@@ -50,15 +50,12 @@ class Solution:
         for i in range(len(s)):
             dp[i][i] = True
             for j in range(i):
-                if s[i]==s[j] and (i-j<=2 or dp[j+1][i-1]):
+                if s[i] == s[j] and (i - j <= 2 or dp[j + 1][i - 1]):
                     dp[j][i] = True
-                    if i-j+1>max_len:
-                        max_len = i-j+1
-                        max_str = s[j:i+1]
+                    if i - j + 1 > max_len:
+                        max_len = i - j + 1
+                        max_str = s[j:i + 1]
 
         return max_str
 
     # todo manacher algorithm
-
-
-
